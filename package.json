@@ -1,0 +1,11 @@
+{
+  "name": "sass-n-compass",
+  "version": "0.0.1",
+  "description": "Testing out some things",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsarachu/sass-n-compass.git"
+  },
+  "author": "Franco Sarachu",
+  "license": "ISC"
+}
