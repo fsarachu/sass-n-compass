@@ -7,5 +7,11 @@
     "url": "git+https://github.com/fsarachu/sass-n-compass.git"
   },
   "author": "Franco Sarachu",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
 }
