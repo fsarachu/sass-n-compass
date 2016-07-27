@@ -3,6 +3,7 @@ module.exports = function (grunt) {
   // Load Tasks
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Config Tasks
   grunt.initConfig({
@@ -12,7 +13,7 @@ module.exports = function (grunt) {
           "separator": ';'
         },
         "files": {
-          'build/js/script.js': ['src/js/*.js']
+          '.tmp/js/script.js': ['src/js/*.js']
         }
       }
     },
@@ -20,13 +21,17 @@ module.exports = function (grunt) {
     "uglify": {
       "target": {
         "files": {
-          "build/js/script.min.js": ["build/js/script.js"]
+          "build/js/script.js": [".tmp/js/script.js"]
         }
       }
+    },
+
+    "clean": {
+      "tmp": ['.tmp/']
     }
   });
 
   // Register Tasks
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify', 'clean']);
 
 };
