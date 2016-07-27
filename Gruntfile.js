@@ -8,9 +8,8 @@ module.exports = function (grunt) {
   grunt.initConfig({
     "concat": {
       "scripts": {
-        "dist": {
-          "src": ['src/js/*.js'],
-          "dest": 'build/js/script.js'
+        "files": {
+          'build/js/script.js': ['src/js/*.js']
         }
       }
     },
@@ -25,6 +24,6 @@ module.exports = function (grunt) {
   });
 
   // Register Tasks
-  grunt.registerTask('default', ['concat','uglify']);
+  grunt.registerTask('default', ['concat', 'uglify']);
 
 };
