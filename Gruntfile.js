@@ -8,6 +8,9 @@ module.exports = function (grunt) {
   grunt.initConfig({
     "concat": {
       "scripts": {
+        "options": {
+          "separator": ';'
+        },
         "files": {
           'build/js/script.js': ['src/js/*.js']
         }
