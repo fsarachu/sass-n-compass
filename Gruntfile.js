@@ -25,6 +25,6 @@ module.exports = function (grunt) {
   });
 
   // Register Tasks
-  grunt.registerTask();
+  grunt.registerTask('default', ['concat','uglify']);
 
 };
