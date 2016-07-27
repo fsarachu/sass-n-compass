@@ -3,6 +3,7 @@ module.exports = function (grunt) {
   // Load Tasks
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -28,6 +29,14 @@ module.exports = function (grunt) {
       }
     }, // Uglify
 
+    "compass": {
+      "dev": {
+        "options": {
+          "config": 'config.rb'
+        }
+      }
+    }, // Compass
+
     "clean": {
       "tmp": ['.tmp/']
     }, // Clean
@@ -49,18 +58,22 @@ module.exports = function (grunt) {
         "livereload": true
       },
       "scripts": {
-        "files": ['src/**/*.js'],
+        "files": ['src/js/*.js'],
         "tasks": ['concat', 'uglify', 'clean']
       },
-      "triggerReload": {
-        "files": ['build/**/*']
+      "sass": {
+        "files": ['src/sass/*.scss'],
+        "tasks": ['compass']
+      },
+      "html": {
+        "files": ['build/*.html']
       }
     } // Watch
   });
 
   // Register Tasks
-  grunt.registerTask('default', ['concat', 'uglify', 'clean', 'connect', 'watch']);
-  grunt.registerTask('build', ['concat', 'uglify', 'clean']);
+  grunt.registerTask('default', ['concat', 'compass', 'uglify', 'clean', 'connect', 'watch']);
+  grunt.registerTask('build', ['concat', 'compass', 'uglify', 'clean']);
   grunt.registerTask('live', ['connect', 'watch']);
 
 };
